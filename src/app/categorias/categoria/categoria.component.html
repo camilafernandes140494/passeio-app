@@ -1,18 +1,22 @@
 <div class="p-6 max-w-lg mx-auto bg-white rounded-lg shadow-lg  mt-6">
   <h2 class="text-2xl font-bold text-center text-blue-600">Nova categoria</h2>
 
-    <form id="categoriaForm" class="mt-4">
+    <form id="categoriaForm" class="mt-4" 
+          (ngSubmit)="salvar()"
+          [formGroup]="camposForm">
         
         <div class="mb-4">
-        <label for="nome" class="block text-gray-700">Nome</label>
-        <input 
-        type="text" 
-        id="nome"
-         name="nome"
-         class="mt-1 block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
-         placeholder="Ex: Restaurante, Praia, Shopping" required>
-        <span class="text-red-500 text-sm">Campo obrigatório</span>
-    </div>
+          <label for="nome" class="block text-gray-700">Nome</label>
+          <input 
+          type="text" 
+          id="nome"
+          name="nome"
+          formControlName="nome"
+          class="mt-1 block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
+          placeholder="Ex: Restaurante, Praia, Shopping"
+            required/>
+          <span *ngIf="isCampoInvalido('nome')" class="text-red-500 text-sm">Campo obrigatório</span>
+        </div>
 
       <div class="mb-4">
         <label for="descricao" class="block text-gray-700">Descrição</label>
@@ -21,9 +25,12 @@
         type="text" 
         id="descricao"
          name="descricao"
+         formControlName="descricao"
          class="mt-1 block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" 
-         placeholder="Ex: Restaurante, Praia, Shopping" required></textarea>
-        <span class="text-red-500 text-sm">Campo obrigatório</span>
+         placeholder="Ex: Restaurante, Praia, Shopping" required             
+>
+        </textarea>
+        <span   *ngIf="isCampoInvalido('descricao')" class="text-red-500 text-sm">Campo obrigatório</span>
     </div>
 
     <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
