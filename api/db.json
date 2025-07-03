@@ -1,0 +1,14 @@
+{
+    "categorias":[
+        {
+            "id": 1,
+            "nome": "Restaurantes",
+            "descricao": "Lugares para comer e beber"
+        },
+        {
+            "id": 2,
+            "nome": "Categoria 2",
+            "descricao": "Descrição da Categoria 2"
+        }
+    ]
+}
